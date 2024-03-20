@@ -1,22 +1,23 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Container, Divider, Form, Icon, TextArea, FormField } from 'semantic-ui-react';
+import MenuSistema from '../../MenuSistema';
 
 export default function FormProduto() {
-    const [titulo, settitulo] = useState();
-    const [codigo, setCodigodoproduto] = useState();
-    const [descricao, setdescricao] = useState();
-    const [ValorUnitario, setValorUnitario] = useState();
-    const [tempoEntregaMinimo, settempoEntregaMinimo] = useState();
-    const [tempoEntregaMaximo, settempoEntregaMaximo] = useState();
+    const [titulo, setTitulo] = useState();
+    const [codigo, setCodigo] = useState();
+    const [descricao, setDescricao] = useState();
+    const [valorUnitario, setValorUnitario] = useState();
+    const [tempoEntregaMinimo, setTempoEntregaMinimo] = useState();
+    const [tempoEntregaMaximo, setTempoEntregaMaximo] = useState();
 
     function salvar() {
 
 		let produtoRequest = {
 		     titulo: titulo,
-		     Codigodoproduto: codigo,
+		     codigoo: codigo,
 		     descricao: descricao,
-		     ValorUnitario: ValorUnitario,
+		     valorUnitario: valorUnitario,
              tempoEntregaMinimo: tempoEntregaMinimo,
              tempoEntregaMaximo: tempoEntregaMaximo
 
@@ -35,6 +36,8 @@ export default function FormProduto() {
     return (
 
         <div>
+         <MenuSistema />
+
 
             <div style={{ marginTop: '3%' }}>
 
@@ -58,7 +61,7 @@ export default function FormProduto() {
                                     placeholder='Informe o título do produto'
                                     width={10}
                                     value={titulo}
-			                        onChange={e => settitulo(e.target.value)}
+			                        onChange={e => setTitulo(e.target.value)}
                                 />
 
                                 <Form.Input
@@ -68,7 +71,7 @@ export default function FormProduto() {
                                     placeholder='Informe o código do Produto'
                                     width={5}
                                     value={codigo}
-			                        onChange={e => setCodigodoproduto(e.target.value)}
+			                        onChange={e => setCodigo(e.target.value)}
                                     >
 
                                 </Form.Input>
@@ -80,7 +83,7 @@ export default function FormProduto() {
                                 label='Descrição'
                                 placeholder='Informe a descrição do produto'
                                 value={descricao}
-			                    onChange={e => setdescricao(e.target.value)} />
+			                    onChange={e => setDescricao(e.target.value)} />
 
                             <Form.Group>
 
@@ -89,7 +92,7 @@ export default function FormProduto() {
                                     fluid
                                     label='Valor Unitário'
                                     width={6}
-                                    value={ValorUnitario}
+                                    value={valorUnitario}
 			                        onChange={e => setValorUnitario(e.target.value)} >
                                     
 
@@ -101,7 +104,7 @@ export default function FormProduto() {
                                     width={6}
                                     placeholder='30' 
                                     value={tempoEntregaMinimo}
-			                        onChange={e => settempoEntregaMinimo(e.target.value)} >
+			                        onChange={e => setTempoEntregaMinimo(e.target.value)} >
                                 </Form.Input>
 
                                 <Form.Input
@@ -110,7 +113,7 @@ export default function FormProduto() {
                                     width={6}
                                     placeholder='40'
                                     value={tempoEntregaMaximo}
-                                    onChange={e => settempoEntregaMaximo} >
+                                    onChange={e => setTempoEntregaMaximo} >
                                 </Form.Input>
 
                             </Form.Group>

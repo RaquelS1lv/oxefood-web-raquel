@@ -1,6 +1,7 @@
 import React, { Component, useState}from "react";
 import InputMask from 'react-input-mask';
 import { Button, Container, Divider, Form, FormRadio, FormGroup, Icon, FormSelect } from 'semantic-ui-react';
+import MenuSistema from '../../MenuSistema';
 
 const Options = [
     { key: 'ac', value: 'ac', text: 'Acre' },
@@ -45,6 +46,8 @@ export default class FormEntregador extends Component {
         return (
 
             <div>
+             <MenuSistema />
+
 
                 <div style={{ marginTop: '3%' }}>
 
