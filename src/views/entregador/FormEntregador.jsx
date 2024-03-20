@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState}from "react";
 import InputMask from 'react-input-mask';
 import { Button, Container, Divider, Form, FormRadio, FormGroup, Icon, FormSelect } from 'semantic-ui-react';
 
@@ -41,7 +41,7 @@ export default class FormEntregador extends Component {
     }
 
     render() {
-
+        
         return (
 
             <div>
