@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Container, Divider, Form, Icon, TextArea, FormField } from 'semantic-ui-react';
-import MenuSistema from '../../MenuSistema';
+import { Link } from "react-router-dom";
+
 
 export default function FormProduto() {
     const [titulo, setTitulo] = useState();
@@ -15,7 +16,7 @@ export default function FormProduto() {
 
 		let produtoRequest = {
 		     titulo: titulo,
-		     codigoo: codigo,
+		     codigo: codigo,
 		     descricao: descricao,
 		     valorUnitario: valorUnitario,
              tempoEntregaMinimo: tempoEntregaMinimo,
@@ -36,8 +37,6 @@ export default function FormProduto() {
     return (
 
         <div>
-         <MenuSistema />
-
 
             <div style={{ marginTop: '3%' }}>
 
@@ -131,7 +130,9 @@ export default function FormProduto() {
                                 color='orange'
                             >
                                 <Icon name='reply' />
-                                Voltar
+                                <Link to={'/list-produto'}>Voltar</Link>
+
+                               
                             </Button>
 
                             <Button
