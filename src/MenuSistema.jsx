@@ -1,55 +1,56 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
+import { logout } from './views/util/AuthenticationService';
 
-class MenuSistema extends React.Component{
+export default function MenuSistema (props) {
 
-   state = {
-       activeItem: 'home'
-   }
+    // logout = () => {
+    //     logout()
+    // }
 
-   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-   render(){
-       return(
-           <>
-               <Menu inverted>
-                  
-                   <Menu.Item
-                       name='home'
-                       active={this.state.activeItem === 'home'}
-                       onClick={this.handleItemClick}
-                       as={Link}
-                       to='/'
-                   />
+    return(
+        <>
+            <Menu inverted>
+                
                 <Menu.Item
-                       name='cliente'
-                       active={this.state.activeItem === 'cliente'}
-                       onClick={this.handleItemClick}
-                       as={Link}
-                       to='/list-cliente'
-                   />
+                    name='home'
+                    active={props.tela === 'home'}
+                    as={Link}
+                    to='/home'
+                />
 
-                   <Menu.Item
-                       name='produto'
-                       active={this.state.activeItem === 'produto'}
-                       onClick={this.handleItemClick}
-                       as={Link}
-                       to='/list-produto'
-                   />
+                <Menu.Item
+                    name='cliente'
+                    active={props.tela === 'cliente'}
+                    as={Link}
+                    to='/list-cliente'
+                />
 
-                   <Menu.Item
-                       name='entregador'
-                       active={this.state.activeItem === 'entregador'}
-                       onClick={this.handleItemClick}
-                       as={Link}
-                       to='/form-entregador'
-                   />
+                <Menu.Item
+                    name='produto'
+                    active={props.tela === 'produto'}
+                    as={Link}
+                    to='/form-produto'
+                />
 
-               </Menu>
-           </>
-       )
-   }
+                <Menu.Item
+                    name='entregador'
+                    active={props.tela === 'entregador'}
+                    as={Link}
+                    to='/form-entregador'
+                />
+
+                <Menu.Item
+                    className='navbar__item--mobile'
+                    onClick={logout}
+                    content='Sair'
+                    as={Link}
+                    to='/'
+                />
+
+
+            </Menu>
+        </>
+    )
 }
-
-export default MenuSistema;
